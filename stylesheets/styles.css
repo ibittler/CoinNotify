@@ -860,6 +860,11 @@ footer {
   line-height: 16px;
 }
 
+.emoji {
+	width: 20px;
+	height: 20px;
+}
+
 @media print, screen and (max-width: 1060px) {
   div.wrapper {
     width: auto;
