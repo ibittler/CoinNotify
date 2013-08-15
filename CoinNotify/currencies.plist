@@ -103,20 +103,7 @@
 		<key>update_url</key>
 		<string>http://data.mtgox.com/api/2/BTCCNY/money/ticker_fast</string>
 	</dict>
-	<dict>
-		<key>currency_1</key>
-		<string>BTC</string>
-		<key>currency_2</key>
-		<string>DKK</string>
-		<key>symbol</key>
-		<string>BTC/DDK</string>
-		<key>exchange</key>
-		<string>MtGox</string>
-		<key>exchange_id</key>
-		<integer>0</integer>
-		<key>update_url</key>
-		<string>http://data.mtgox.com/api/2/BTCDDK/money/ticker_fast</string>
-	</dict>
+
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -200,20 +187,6 @@
 		<integer>0</integer>
 		<key>update_url</key>
 		<string>http://data.mtgox.com/api/2/BTCNOK/money/ticker_fast</string>
-	</dict>
-	<dict>
-		<key>currency_1</key>
-		<string>BTC</string>
-		<key>currency_2</key>
-		<string>CZK</string>
-		<key>symbol</key>
-		<string>BTC/CZK</string>
-		<key>exchange</key>
-		<string>MtGox</string>
-		<key>exchange_id</key>
-		<integer>0</integer>
-		<key>update_url</key>
-		<string>http://data.mtgox.com/api/2/BTCCZK/money/ticker_fast</string>
 	</dict>
 	<!-- Bitstamp (https://www.bitstamp.net/api/ticker/) -->
 	<dict>
