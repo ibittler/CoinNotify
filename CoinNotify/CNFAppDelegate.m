@@ -41,6 +41,11 @@
                                                       }
                                                       [_statusView setNeedsDisplay:YES];
                                                   }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changedDefaults)
+                                                 name:NSUserDefaultsDidChangeNotification
+                                               object:nil];
 
 }
 
@@ -52,12 +57,9 @@
     NSDictionary *defaultSettings = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"default" withExtension:@"plist"]];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultSettings];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [[NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] floatForKey:kSettingsUpdateFrequency]
-                                      target:self
-                                    selector:@selector(updateQuotes)
-                                    userInfo:nil
-                                     repeats:YES] fire];
+    [self scheduleTimer];
     
     [[SUUpdater sharedUpdater] setAutomaticallyDownloadsUpdates:YES];
     [[SUUpdater sharedUpdater] setSendsSystemProfile:YES];
@@ -126,5 +128,26 @@
 - (void)checkForUpdates
 {
     [[SUUpdater sharedUpdater] checkForUpdatesInBackground];
+}
+
+- (void)scheduleTimer
+{
+    _refreshingTimer = [NSTimer scheduledTimerWithTimeInterval:[[NSUserDefaults standardUserDefaults] floatForKey:kSettingsUpdateFrequency]
+                                                        target:self
+                                                      selector:@selector(updateQuotes)
+                                                      userInfo:nil
+                                                       repeats:YES];
+    [_refreshingTimer fire];
+}
+
+- (void)changedDefaults
+{
+    if (_refreshingTimer.timeInterval == [[NSUserDefaults standardUserDefaults] floatForKey:kSettingsUpdateFrequency]) {
+        return;
+    }
+    NSLog(@"Defaults changed");
+    [_refreshingTimer invalidate];
+    _refreshingTimer = nil;
+    [self scheduleTimer];
 }
 @end

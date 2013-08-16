@@ -20,6 +20,7 @@
 		1D67D00817B12FE30090D585 /* CNFStatusIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D67D00717B12FE30090D585 /* CNFStatusIconView.m */; };
 		1D67D00F17B136420090D585 /* CNFPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D67D00D17B136410090D585 /* CNFPopupViewController.m */; };
 		1D67D01017B136420090D585 /* CNFPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D67D00E17B136420090D585 /* CNFPopupViewController.xib */; };
+		1D7D231417BE7E8E00BBDA48 /* cn-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1D7D231317BE7E8E00BBDA48 /* cn-icon.icns */; };
 		1D8145FC17AEBA8400B12682 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8145FB17AEBA8400B12682 /* Cocoa.framework */; };
 		1D81460617AEBA8400B12682 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D81460417AEBA8400B12682 /* InfoPlist.strings */; };
 		1D81460817AEBA8400B12682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81460717AEBA8400B12682 /* main.m */; };
@@ -77,6 +78,7 @@
 		1D67D00C17B136410090D585 /* CNFPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNFPopupViewController.h; sourceTree = "<group>"; };
 		1D67D00D17B136410090D585 /* CNFPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNFPopupViewController.m; sourceTree = "<group>"; };
 		1D67D00E17B136420090D585 /* CNFPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CNFPopupViewController.xib; sourceTree = "<group>"; };
+		1D7D231317BE7E8E00BBDA48 /* cn-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cn-icon.icns"; path = "../cn-icon.icns"; sourceTree = "<group>"; };
 		1D8145F817AEBA8400B12682 /* CoinNotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinNotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8145FB17AEBA8400B12682 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1D8145FE17AEBA8400B12682 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -208,6 +210,7 @@
 		1D81460217AEBA8400B12682 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D7D231317BE7E8E00BBDA48 /* cn-icon.icns */,
 				1D38070517BD176F0071C266 /* dsa_pub.pem */,
 				1DD5B47617B13F2D0002F67A /* gear.icns */,
 				1D81460317AEBA8400B12682 /* CoinNotify-Info.plist */,
@@ -303,6 +306,7 @@
 				1D83E70517BBB818003B3BF8 /* CNFSettingsWindowController.xib in Resources */,
 				1D844BE417BBC3B800187A6D /* default.plist in Resources */,
 				1D38070617BD176F0071C266 /* dsa_pub.pem in Resources */,
+				1D7D231417BE7E8E00BBDA48 /* cn-icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +431,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoinNotify/CoinNotify-Prefix.pch";
 				INFOPLIST_FILE = "CoinNotify/CoinNotify-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -443,6 +448,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoinNotify/CoinNotify-Prefix.pch";
 				INFOPLIST_FILE = "CoinNotify/CoinNotify-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

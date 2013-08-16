@@ -25,7 +25,7 @@
     [_updateFrequencySlider setFloatValue:[[NSUserDefaults standardUserDefaults] floatForKey:kSettingsUpdateFrequency]];
     [self updateFrequencySliderUpdated:_updateFrequencySlider];
     [_decimalsButton selectItemWithTag:[[NSUserDefaults standardUserDefaults] integerForKey:kSettingsDecimalSteps]];
-    [_versionField setStringValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    [_versionField setStringValue:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
 
 }
 

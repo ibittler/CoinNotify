@@ -10,6 +10,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (retain) NSStatusItem *statusItem;
+@property (strong) NSTimer *refreshingTimer;
 
 
 @end
