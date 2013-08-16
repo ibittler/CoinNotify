@@ -115,6 +115,6 @@
 
 - (IBAction)openDonation:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://ibittler.github.io/donate"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://ibittler.github.io/CoinNotify/#donations"]];
 }
 @end
