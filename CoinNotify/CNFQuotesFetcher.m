@@ -44,6 +44,9 @@
         case CNFCampBX:
             quotesResponse = [self parseCampBX:quotesData];
             break;
+        case CNFBitcoinAverage:
+            quotesResponse = [self parseBitcoinAverage:quotesData];
+            break;
         default:
             return nil;
             break;
@@ -106,6 +109,19 @@
     }
     
     NSNumber* lastPrice = [quotes objectForKey:@"Last Trade"];
+    return lastPrice;
+}
+
++ (NSNumber*) parseBitcoinAverage:(NSData*) json
+{
+    NSError *error;
+    NSDictionary *quotes = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&error];
+
+    if (error != nil) {
+        NSLog(@"** ERROR parsing BitcoinAverage ticker**: %@", error);
+    }
+    
+    NSNumber* lastPrice = [quotes objectForKey:@"last"];
     return lastPrice;
 }
 

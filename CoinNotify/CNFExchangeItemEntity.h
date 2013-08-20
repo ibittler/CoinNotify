@@ -10,7 +10,8 @@ typedef NS_ENUM(NSUInteger, CNFExchanges) {
     CNFMtGox = 0,
     CNFBitstamp = 1,
     CNFBtcE = 2,
-    CNFCampBX = 3
+    CNFCampBX = 3,
+    CNFBitcoinAverage = 4
 };
 
 @property (strong) NSString* symbol;
