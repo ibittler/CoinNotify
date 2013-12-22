@@ -12,9 +12,10 @@
 #import "CNFExchangesDataSource.h"
 
 #import <Sparkle/Sparkle.h>
+#import <WebKit/WebKit.h>
 
 @interface CNFAppDelegate () {
-    NSViewController *_viewController;
+    CNFPopupViewController *_viewController;
     BOOL _active;
     NSPopover *_popover;
     CNFStatusIconView *_statusView;
@@ -44,7 +45,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(changedDefaults)
-                                                 name:NSUserDefaultsDidChangeNotification
+                                                 name:kUpdatedTimerName
                                                object:nil];
 
 }
@@ -53,6 +54,8 @@
 {
     _viewController = [[CNFPopupViewController alloc] initWithNibName:@"CNFPopupViewController"
                                                                bundle:[NSBundle mainBundle]];
+    [_viewController loadAd];
+    
     
     NSDictionary *defaultSettings = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"default" withExtension:@"plist"]];
     

@@ -11,7 +11,9 @@ typedef NS_ENUM(NSUInteger, CNFExchanges) {
     CNFBitstamp = 1,
     CNFBtcE = 2,
     CNFCampBX = 3,
-    CNFBitcoinAverage = 4
+    CNFBitcoinAverage = 4,
+    CNFFxBTC = 5,
+    CNFBTCChina = 6
 };
 
 @property (strong) NSString* symbol;

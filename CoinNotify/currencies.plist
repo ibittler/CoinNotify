@@ -2,9 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<!-- MTGOX  	JPY	Japanese Yen	1000	1e3
-					SEK	Swedish Krona	1000	1e3 
-	-->
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -103,7 +100,6 @@
 		<key>update_url</key>
 		<string>http://data.mtgox.com/api/2/BTCCNY/money/ticker_fast</string>
 	</dict>
-
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -188,7 +184,6 @@
 		<key>update_url</key>
 		<string>http://data.mtgox.com/api/2/BTCNOK/money/ticker_fast</string>
 	</dict>
-	<!-- Bitstamp (https://www.bitstamp.net/api/ticker/) -->
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -203,7 +198,6 @@
 		<key>update_url</key>
 		<string>https://www.bitstamp.net/api/ticker/</string>
 	</dict>
-	<!-- Btc-e -->
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -260,8 +254,6 @@
 		<key>update_url</key>
 		<string>https://btc-e.com/api/2/ltc_eur/ticker/</string>
 	</dict>
-	
-	<!-- Campbx (http://campbx.com/api/xticker.php) -->
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -276,7 +268,6 @@
 		<key>update_url</key>
 		<string>http://campbx.com/api/xticker.php</string>
 	</dict>
-	<!-- BitcoinAverage -->
 	<dict>
 		<key>currency_1</key>
 		<string>BTC</string>
@@ -361,6 +352,33 @@
 		<key>update_url</key>
 		<string>http://api.bitcoinaverage.com/ticker/PLN</string>
 	</dict>
-	<!-- Cryptsy -->
+	<dict>
+		<key>currency_1</key>
+		<string>BTC</string>
+		<key>currency_2</key>
+		<string>CNY</string>
+		<key>symbol</key>
+		<string>BTC/CNY</string>
+		<key>exchange</key>
+		<string>FxBTC</string>
+		<key>exchange_id</key>
+		<integer>5</integer>
+		<key>update_url</key>
+		<string>https://data.fxbtc.com/api?op=query_ticker&amp;symbol=btc_cny</string>
+	</dict>
+	<dict>
+		<key>currency_1</key>
+		<string>BTC</string>
+		<key>currency_2</key>
+		<string>CNY</string>
+		<key>symbol</key>
+		<string>BTC/CNY</string>
+		<key>exchange</key>
+		<string>BTCChina</string>
+		<key>exchange_id</key>
+		<integer>6</integer>
+		<key>update_url</key>
+		<string>https://data.btcchina.com/data/ticker</string>
+	</dict>
 </array>
 </plist>

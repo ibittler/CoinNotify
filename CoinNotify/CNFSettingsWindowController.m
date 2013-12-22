@@ -45,7 +45,12 @@
     } else if (frequency == 120) {
         return @"Every two minutes";
     } else {
-        return [NSString stringWithFormat:@"Every %d:%02d minutes", (int)(frequency / 60), (int)(frequency - 60)];
+        int seconds = (int)frequency % 60;
+        int minutes = (int)(frequency / 60) % 60;
+        int hours = frequency / 3600;
+        
+        return [NSString stringWithFormat:@"Every %02d:%02d minutes", minutes, seconds];
+
     }
 }
 
@@ -55,5 +60,7 @@
     NSLog(@"Saved decimal steps %d", decimals);
     [[NSUserDefaults standardUserDefaults] setInteger:decimals forKey:kSettingsDecimalSteps];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kUpdatedTimerName object:nil]];
+
 }
 @end

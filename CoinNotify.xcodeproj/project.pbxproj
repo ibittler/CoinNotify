@@ -31,6 +31,7 @@
 		1D83E70517BBB818003B3BF8 /* CNFSettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D83E70317BBB818003B3BF8 /* CNFSettingsWindowController.xib */; };
 		1D844BE417BBC3B800187A6D /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D844BE317BBC3B800187A6D /* default.plist */; };
 		1D844BEB17BBD01A00187A6D /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D844BE917BBCB2100187A6D /* NSFileManager+DirectoryLocations.m */; };
+		1D9A4D4B186722E7003CD8E3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A4D4A186722E7003CD8E3 /* WebKit.framework */; };
 		1DD5B47A17B13FB00002F67A /* gear.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1DD5B47617B13F2D0002F67A /* gear.icns */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		1D844BE317BBC3B800187A6D /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default.plist; sourceTree = "<group>"; };
 		1D844BE817BBCB2100187A6D /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		1D844BE917BBCB2100187A6D /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
+		1D9A4D4A186722E7003CD8E3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1DD5B47617B13F2D0002F67A /* gear.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gear.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9A4D4B186722E7003CD8E3 /* WebKit.framework in Frameworks */,
 				1D8145FC17AEBA8400B12682 /* Cocoa.framework in Frameworks */,
 				1D38070F17BD22AB0071C266 /* Sparkle.framework in Frameworks */,
 			);
@@ -172,6 +175,7 @@
 		1D8145FA17AEBA8400B12682 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D9A4D4A186722E7003CD8E3 /* WebKit.framework */,
 				1D38070E17BD22AB0071C266 /* Sparkle.framework */,
 				1D8145FB17AEBA8400B12682 /* Cocoa.framework */,
 				1D8145FD17AEBA8400B12682 /* Other Frameworks */,
@@ -274,6 +278,15 @@
 				CLASSPREFIX = CNF;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = ibittler;
+				TargetAttributes = {
+					1D8145F717AEBA8400B12682 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 1D8145F317AEBA8400B12682 /* Build configuration list for PBXProject "CoinNotify" */;
 			compatibilityVersion = "Xcode 3.2";

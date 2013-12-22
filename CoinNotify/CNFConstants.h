@@ -4,6 +4,7 @@
 //
 
 #define kUpdatedNotificationName @"updated_datstore"
+#define kUpdatedTimerName @"updated_timer"
 
 #define kPricesTableViewType @"price_type"
 

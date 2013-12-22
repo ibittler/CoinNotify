@@ -24,12 +24,21 @@
                                                   usingBlock:^(NSNotification *notification){
                                                       [_pricesTableView reloadData];
                                                   }];
+    [self loadView];
+    
+    [[NSTimer scheduledTimerWithTimeInterval:3000
+                                      target:self
+                                    selector:@selector(loadAd)
+                                    userInfo:nil
+                                     repeats:YES] fire];
+    
     return self;
 }
 
 - (void) awakeFromNib
 {
     [_pricesTableView registerForDraggedTypes:[NSArray arrayWithObject:kPricesTableViewType]];
+    [_adWebView setShouldUpdateWhileOffscreen:YES];
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
@@ -116,5 +125,21 @@
 - (IBAction)openDonation:(id)sender
 {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://ibittler.github.io/CoinNotify/#donations"]];
+}
+
+- (void) loadAd
+{
+    [[_adWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/static/ad.html"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30]];
+}
+
+-(void)webView:(WebView *)webView decidePolicyForNewWindowAction:(NSDictionary *)actionInformation
+       request:(NSURLRequest *)request
+  newFrameName:(NSString *)frameName
+decisionListener:(id <WebPolicyDecisionListener>)listener
+{
+    NSLog(@"Policy new window: %@", [request URL]);
+    [listener ignore];
+    [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+
 }
 @end

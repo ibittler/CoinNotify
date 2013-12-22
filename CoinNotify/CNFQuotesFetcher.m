@@ -27,7 +27,6 @@
         NSLog(@"**ERROR GETTING QUOTES** (%@) with error: %@ ", [quotesRequest URL], error);
         return nil;
     }
-    NSLog(@"Quote request %@ (%d)", [quotesRequest URL], item.exchangeId);
     
     NSNumber* quotesResponse;
     
@@ -46,6 +45,12 @@
             break;
         case CNFBitcoinAverage:
             quotesResponse = [self parseBitcoinAverage:quotesData];
+            break;
+        case CNFFxBTC:
+            quotesResponse = [self parseFxBTC:quotesData];
+            break;
+        case CNFBTCChina:
+            quotesResponse = [self parseBTCChina:quotesData];
             break;
         default:
             return nil;
@@ -124,6 +129,35 @@
     NSNumber* lastPrice = [quotes objectForKey:@"last"];
     return lastPrice;
 }
+
++ (NSNumber*) parseFxBTC:(NSData*) json
+{
+    NSError *error;
+    NSDictionary *quotes = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&error];
+    
+    if (error != nil) {
+        NSLog(@"** ERROR parsing FxBTC ticker**: %@", error);
+    }
+    
+    NSNumber* lastPrice = [(NSDictionary*)[quotes objectForKey:@"ticker"] objectForKey:@"last_rate"];
+    return lastPrice;
+}
+
++ (NSNumber*) parseBTCChina:(NSData*) json
+{
+    NSError *error;
+    NSDictionary *quotes = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&error];
+    
+    if (error != nil) {
+        NSLog(@"** ERROR parsing BTCChina ticker**: %@", error);
+    }
+    
+    NSString* lastPriceString = [(NSDictionary*)[quotes objectForKey:@"ticker"] objectForKey:@"last"];
+    NSNumber* lastPrice = [NSNumber numberWithFloat:[lastPriceString floatValue]];
+    
+    return lastPrice;
+}
+
 
 + (NSString*) getUserAgent
 {
