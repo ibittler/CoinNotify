@@ -129,7 +129,7 @@
 
 - (void) loadAd
 {
-    [[_adWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/static/ad.html"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30]];
+    [[_adWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://coinnotify.appspot.com/static/ad.html"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30]];
 }
 
 -(void)webView:(WebView *)webView decidePolicyForNewWindowAction:(NSDictionary *)actionInformation
